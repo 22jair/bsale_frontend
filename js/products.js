@@ -6,7 +6,7 @@ const input_search = document.getElementById('input_search');
 const btn_search = document.getElementById('btn_search');
 const show_category = document.getElementById('show_category');
 const show_orderby = document.getElementById('show_orderby');
-const loading_container = document.getElementById('loading_container');
+
 
 let products = [];
 let sort = "id";
@@ -17,7 +17,6 @@ let category = undefined;
 let total = 0;
 let totalPages = 0;
 let search = '';
-let isFeching = false;
 
 /*
 * Get products from API 
@@ -25,8 +24,8 @@ let isFeching = false;
 const getProducts = async () => {
   
   try {
-    isFeching = true;
-    showLoading(isFeching);
+    IS_FEATCHING = true;
+    showLoading(IS_FEATCHING);
     const response = await fetch(`${URL_PRODUCTS}?sort=${sort}&order=${order}&limit=${limit}&page=${page}&category=${category}&search=${search}`);
     const { data, total: totalProducts } = await response.json(); 
     products = data;
@@ -34,10 +33,10 @@ const getProducts = async () => {
     total = totalProducts;
     drawProducts(data);
     drawPagination();
-    isFeching = false;
+    IS_FEATCHING = false;
     showLoading(false);
   } catch (error) {
-    isFeching = false;
+    IS_FEATCHING = false;
     showLoading(false);
     Swal.fire({
       icon: 'error',
@@ -54,15 +53,15 @@ const getProducts = async () => {
 const getCategories = async () => {
     
     try {
-      isFeching = true;
-      showLoading(isFeching);
+      IS_FEATCHING = true;
+      showLoading(IS_FEATCHING);
       const response = await fetch(`${URL_CATEGORIES}`);
       const { data } = await response.json();
       drawCategories(data);
-      isFeching = false;
+      IS_FEATCHING = false;
       showLoading(false);
     } catch (error) {
-      isFeching = false;
+      IS_FEATCHING = false;
       showLoading(false);
       Swal.fire({
         icon: 'error',
@@ -176,13 +175,9 @@ const eventAddCart = (id) => {
     addToCart(product);
   }
 }
-
-
 /* Finish Events */
 
-const showLoading = (bool = true) => {
-  loading_container.style.display = bool ? 'flex' : 'none';
-}
+
 
 dropdown_categories.addEventListener('click',selectCategory)
 dropdown_orderby.addEventListener('click',selectOrderBy)
