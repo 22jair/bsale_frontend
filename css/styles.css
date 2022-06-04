@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
+html, body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: #eaedf2;
+  position: relative;
+  font-family: 'Encode Sans Expanded', sans-serif;
+  font-family: 'Lato', sans-serif;
+}
+
+main{
+  display: flex;  
+  height: 100%;  
+}
+
+/* NAV */
+
+nav{
+  background-color: #fff;
+  width: 100px;
+}
+
+nav .logo{
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  text-shadow: #DC3545 0px 2px 0.5px;
+}
+
+nav ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;  
+}
+
+nav ul li{
+  padding: 20px 0;
+  border-bottom: 1px solid #eaedf2;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+nav ul li:hover{
+  background-color: #eaedf2;
+}
+
+nav ul li.selected{
+  background-color: #eaedf2;
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+nav .carrito-icon{
+  position: relative;
+}
+
+nav .carrito-icon .carrito-badge{
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+}
+/* FIN NAV */
+
+/* MAIN CONTAINER */
+.main-container{
+  display: flex;  
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* OPTIONS CONTAINER */
+.filter-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  align-items: center;  
+  width: 100%;
+  max-width: 800px;
+  height: 100%;  
+  padding: 20px;
+}
+
+.filter-select{
+  padding: 8px;
+  border: 1px solid rgb(202, 200, 200);
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+@media screen and (max-width: 768px){
+  .filter-container{
+    flex-direction: column;
+  }
+  .filter-container .filter-option{
+    margin-bottom: 10px;
+  }
+}
+
+
+/* PRODUCT CONTAINER */
+
+#product-container{
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  grid-gap: 20px; 
+  
+}
+
+.product-item{
+  width: 200px;
+  height: 300px;
+  padding: 0 10px; 
+  background-color: #FFF;
+  border-radius: 12px;
+  box-shadow: 0.1px 5px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-item img{
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  filter: grayscale(30%);
+  transition: all 0.5s ease;     
+}
+
+.discount-badget{
+  position:absolute;
+  top: 0px;
+  right: 0;
+  width: 60px;
+  height: 30px;
+  background-color: #DC3545;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 5px;
+  transition: all 0.5s ease;
+}
+
+.product-item:hover img,
+.product-item:hover .discount-badget{
+  filter: grayscale(0%) brightness(106%) ;  
+  transform: scale(1.15);
+}
+
+.product-item h3{
+  font-size: 14px;
+}
+
+.product-item .card-price-old{
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  margin-bottom: 0px;
+}
+
+.product-btn{
+  width: 130px;
+  height: 40px;
+  margin: 0 auto;
+  background-color: #eaedf2;
+  border-radius: 8px;
+  color: #333;
+  border: 0;
+  font-size: 16px;
+  display: flex;  
+  align-items: center;    
+  padding: 10px 20px;
+  transition: all 0.5s ease;
+}
+
+.product-btn:hover{
+  background-color: #cacaca;
+  color: #333;
+}
+
+@media screen and (max-width: 1080px){
+  #product-container{
+    grid-template-columns: 200px 200px 200px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  #product-container{
+    grid-template-columns: 150px 150px;
+  }
+  .product-item{
+    width: 150px;    
+  }
+}
+/* END PRODUCT */
+
+/* PAGINATION */
+/* .pagination .page-item.active{
+  background: #DC3545 !important;
+} */
+
+.pagination li{
+  cursor: pointer;
+}
+
+.pagination a{
+  color: #333 !important;
+  background-color: #eaedf2 !important;
+  border: #333 solid 1px !important;
+}
+
+.pagination a:hover{
+  background-color: #cacaca !important;
+  color: #333 !important;
+}
+
+.pagination .page-item.active a{
+  color: #fff !important;
+  background-color: #DC3545 !important;
+}
+
