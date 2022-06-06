@@ -67,15 +67,21 @@
       
         <!-- Filters -->
       <div class="filter-container">
+        <div class="filter-option">
+          <div class="input-group">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" id="btn_search" type="button"><i class="bi bi-search"></i></button>
+            </div>              
+            <div class="search-input-container">
+              <input type="text" class="form-control" placeholder="Buscar producto" id="input_search">
+              <div id="search-icon-clear">
+                <i class="bi bi-x-circle"></i>
+              </div>
+            </div>
             
-          <div class="filter-option" id="select_limit">
-            <select class="filter-select">
-              <option value="5">5</option>
-              <option value="10" selected>10</option>
-              <option value="15">15</option>
-            </select>
           </div>
-
+        </div>
+        
           <div class="dropdown filter-option">
             <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-tag"></i> Categorías
@@ -100,15 +106,17 @@
               <li><a class="dropdown-item" value="discount" order="DESC" href="#">Por descuento</a></li>
             </ul>            
           </div>
-                
-          <div class="filter-option">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Buscar producto" id="input_search">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" id="btn_search" type="button">Buscar</button>
-              </div>
-            </div>
+          <div class="filter-option" id="select_limit">
+            <select class="filter-select">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="15">15</option>
+            </select>
           </div>
+          
+          <div class="filter-option">
+            <button class="btn btn-danger"  id="btn-clear-all" title="Limpiar Filtros"><i class="bi bi-eraser"></i></button>
+          </div> 
         
       </div>
     
@@ -130,6 +138,17 @@
         <ul class="pagination" id="main_pagination">
           
         </ul>
+      </div>
+
+      <!-- Data not found -->
+      <div id="data-notfound-container" class="col-md-12">
+        <figure>
+          <img src="./img/no_data_found.svg" >
+        </figure>
+        <div>
+          <h5 class="card-title">No se encontraron productos</h5>
+          <p class="card-text">Por favor, intente con otros filtros</p>
+        </div>            
       </div>
 
     </div>

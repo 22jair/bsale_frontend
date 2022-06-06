@@ -6,7 +6,9 @@ const input_search = document.getElementById('input_search');
 const btn_search = document.getElementById('btn_search');
 const show_category = document.getElementById('show_category');
 const show_orderby = document.getElementById('show_orderby');
-
+const search_icon_clear = document.getElementById('search-icon-clear');
+const btn_clear_all = document.getElementById('btn-clear-all');
+const data_notfound_container = document.getElementById('data-notfound-container');
 
 let products = [];
 let sort = "id";
@@ -31,8 +33,12 @@ const getProducts = async () => {
     products = data;
     totalPages = Math.ceil(totalProducts/limit);
     total = totalProducts;
-    drawProducts(data);
-    drawPagination();
+    if(data.length > 0){
+      drawProducts(data);      
+      drawPagination();
+    }else{
+      drowDataNotFound();
+    }    
     IS_FEATCHING = false;
     showLoading(false);
   } catch (error) {
@@ -82,6 +88,7 @@ const drawCategories = (categories) => {
 }
 
 const drawProducts = (products) => { 
+  data_notfound_container.style.display = 'none';
   let html = '';
   products.forEach(product => {
     
@@ -102,6 +109,7 @@ const drawProducts = (products) => {
           <button onClick="eventAddCart(${product.id})" class="product-btn">Agregar  <i class="bi bi-cart-plus"></i></button>
         </p>
         ${ product.isDiscount ? `<div class="discount-badget">20%</div>` : '' }
+        <div class="category-badget" title="${product.category.name}">${product.category.name}</div>
       </div>
     </div>
     `;
@@ -127,6 +135,12 @@ const drawPagination = () => {3
         `;
   main_pagination.innerHTML = html;  
 }
+
+const drowDataNotFound = () => {
+  main_pagination.innerHTML = '';  
+  product_container.innerHTML = '';
+  data_notfound_container.style.display = 'flex';
+}
 /* Finish draw HTML */
 
 /* Init Events */
@@ -148,10 +162,43 @@ const selectOrderBy = (e) => {
   getProducts();
 }
 
-const searchProduct = (e) => {
-  e.preventDefault();
+const searchProduct = () => {
   search = input_search.value;
+
+  if(search.length <= 0){
+    return showToast("Ingrese al menos un caracter", "error");
+  }
+
   page = 1;
+  search_icon_clear.style.display = 'block';
+  getProducts();
+}
+
+const eventEnterInputSearch = (e) => {
+  if(e.keyCode == 13){
+    searchProduct();    
+  }
+}
+
+const clearSearch = () => {
+  search = '';
+  input_search.value = '';
+  search_icon_clear.style.display = 'none';
+  page = 1;  
+  getProducts();
+}
+
+const clearAll = () => {
+  category = undefined;
+  sort = "id";
+  order = "ASC";
+  limit = 10;
+  page = 1;
+  search = '';
+  show_category.innerHTML = '--';
+  show_orderby.innerHTML = '--';
+  search_icon_clear.style.display = 'none';
+  input_search.value = '';
   getProducts();
 }
 
@@ -177,11 +224,12 @@ const eventAddCart = (id) => {
 }
 /* Finish Events */
 
-
-
 dropdown_categories.addEventListener('click',selectCategory)
 dropdown_orderby.addEventListener('click',selectOrderBy)
 btn_search.addEventListener('click',searchProduct)
 select_limit.addEventListener('change',limitProducts)
+input_search.addEventListener('keyup',eventEnterInputSearch)
+search_icon_clear.addEventListener('click',clearSearch)
+btn_clear_all.addEventListener('click',clearAll)
 getProducts();
 getCategories();
