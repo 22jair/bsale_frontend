@@ -18,9 +18,11 @@ Desarrollo de sistema web con las siguientes tecgnologías
 *  Las categorías en el filtro son rellenadas con la data brindada de la Base de datos.
 *  Así mismo se puede agregar items al carrito de compra y este sera almacenado en el LocalStorage para evitar perder la información.
 
-[![productos](https://i.ibb.co/c8JQCY4/Screenshot-11.png "productos")](https://i.ibb.co/c8JQCY4/Screenshot-11.png "productos")
+[![productos](https://i.ibb.co/SVxhKPg/Screenshot-15.png "productos")](https://i.ibb.co/SVxhKPg/Screenshot-15.png "productos")
 
-[![productos](https://i.ibb.co/T8MrydM/Screenshot-12.png "productos")](https://i.ibb.co/T8MrydM/Screenshot-12.png "productos")
+[![productos](https://i.ibb.co/gPW5fnz/Screenshot-17.png "productos")](https://i.ibb.co/gPW5fnz/Screenshot-17.png "productos")
+
+[![productos](https://i.ibb.co/VpKNRgj/Screenshot-16.png "productos")](https://i.ibb.co/VpKNRgj/Screenshot-16.png "productos")
 
 #### SECCION 2 - CARRITO DE COMPRA
 * En esta sección veremos el almacenamiento de los productos, acciones como disminuir y aumentar y así mismo finalizar el pedido.
