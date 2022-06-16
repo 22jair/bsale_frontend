@@ -1,4 +1,4 @@
-## BSALE - CLIENT
+## SALES - CLIENT
 Desarrollo de sistema web con las siguientes tecgnologías
 - HTML
 - Javascript
