@@ -1,34 +1,27 @@
 ## BSALE - CLIENT
 Desarrollo de sistema web con las siguientes tecgnologías
-- HTML: Lenguaje de marcado para la creación de las páginas web.
-- Javascript: Lenguaje de programación e interación con HTML para las peticiones RestApi.
-- Css: Hoja de estilos para la mejora de experiencia de usuario.
-- Bootstrap: Biblioteca de herramientas.
+- HTML
+- Javascript
+- Css
+- Bootstrap
 
 ### URL DESPLEGADA
+https://verdant-tanuki-a2a61e.netlify.app/
 
 #### SECCION 1 - PRODUCTOS
-* En esta sección podremos realizar busquedas a travez de filtros del lado del cliente y obtener respuesta del lado del servidor (server-side).
-    Los filtros pueden realizarse por:
-        * Ordenamiento
-        * Categorias
-        * Limites
-        * Busqueda
-        * Cuenta con paginación
-*  Las categorías en el filtro son rellenadas con la data brindada de la Base de datos.
-*  Así mismo se puede agregar items al carrito de compra y este sera almacenado en el LocalStorage para evitar perder la información.
+* Filtros del lado del cliente y respuesta del lado del servidor (server-side):
+    * Ordenamiento
+    * Categorias
+    * Limites
+    * Busqueda
+    * Paginación server-side
 
 [![productos](https://i.ibb.co/SVxhKPg/Screenshot-15.png "productos")](https://i.ibb.co/SVxhKPg/Screenshot-15.png "productos")
 
 [![productos](https://i.ibb.co/gPW5fnz/Screenshot-17.png "productos")](https://i.ibb.co/gPW5fnz/Screenshot-17.png "productos")
 
-[![productos](https://i.ibb.co/VpKNRgj/Screenshot-16.png "productos")](https://i.ibb.co/VpKNRgj/Screenshot-16.png "productos")
-
 #### SECCION 2 - CARRITO DE COMPRA
-* En esta sección veremos el almacenamiento de los productos, acciones como disminuir y aumentar y así mismo finalizar el pedido.
 
 [![productos](https://i.ibb.co/L966VZR/Screenshot-13.png "productos")](https://i.ibb.co/L966VZR/Screenshot-13.png "carrito_compras") 
-
-
 
 -- Jair Arteaga
